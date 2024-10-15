@@ -7,7 +7,8 @@ import {
 } from "react";
 import PropTypes from "prop-types";
 
-const BASE_URL = "http://localhost:9000";
+// const BASE_URL = "http://localhost:9000";
+const BASE_URL = "https://my-json-server.typicode.com/Ahmedkhalaf88/worldwise";
 
 const CitiesContext = createContext();
 
