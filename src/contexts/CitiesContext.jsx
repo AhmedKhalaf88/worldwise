@@ -94,6 +94,19 @@ function CitiesProvider({ children }) {
     fetchCities();
   }, []);
 
+  const flagemojiToPNG = (flag) => {
+    if (!flag) {
+      console.error("flag is undefined or null:", flag);
+      return "";
+    }
+    var countryCode = Array.from(flag, (codeUnit) => codeUnit.codePointAt())
+      .map((char) => String.fromCharCode(char - 127397).toLowerCase())
+      .join("");
+    return (
+      <img src={`https://flagcdn.com/24x18/${countryCode}.png`} alt="flag" />
+    );
+  };
+
   const getCity = useCallback(
     async function getCity(id) {
       if (Number(id) === currentCity.id) return;
@@ -158,6 +171,7 @@ function CitiesProvider({ children }) {
         getCity,
         createCity,
         deleteCity,
+        flagemojiToPNG,
       }}
     >
       {children}
